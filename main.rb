@@ -71,21 +71,33 @@ class GameWindow < Gosu::Window
     )
   end
 
+  
   def update()
     if @spinning
       current_time = Gosu.milliseconds
+      interval = 100 + @spin_steps * 15
 
-      if current_time - @last_spin_time >= 150
+      if current_time - @last_spin_time >= interval
         @highlight_index = (@highlight_index + 1) % @formations.length
+        @spin_steps += 1
         @last_spin_time = current_time
+
+        if @spin_steps >= 18
+          @spinning = false
+          @selected_formation = @formations[@highlight_index]
+        end
       end
     end
   end
-
+  
   def start_spin()
-  @spinning = true
-  @highlight_index = 0
-  @last_spin_time = Gosu.milliseconds
+    return if @spinning
+
+    @spinning = true
+    @selected_formation = nil
+    @highlight_index = rand(@formations.length)
+    @spin_steps = 0
+    @last_spin_time = Gosu.milliseconds
   end
   
   def draw()
