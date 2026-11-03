@@ -15,7 +15,10 @@ class GameWindow < Gosu::Window
     self.caption = "DRAFTIFY"
 
     @logo = Gosu::Image.new("media/draftify_logo.png")
+
     @font = Gosu::Font.new(22)
+    @button_font = Gosu::Font.new(26)
+
     @screen = :splash
   end
 
@@ -67,56 +70,92 @@ class GameWindow < Gosu::Window
     end
   end
 
-  def draw_menu()
+  def mouse_over_button?(x, y, width, height)
+  mouse_x >= x && mouse_x <= x + width &&
+    mouse_y >= y && mouse_y <= y + height
+end
+
+
+def draw_button(text, x, y, button_width, button_height)
+  hovered = mouse_over_button?(x, y, button_width, button_height)
+
+  if hovered
+    x -= 5
+    y -= 3
+    button_width += 10
+    button_height += 6
+
+    button_color = Gosu::Color::BLACK
+    text_color = Gosu::Color::WHITE
+  else
+    button_color = Gosu::Color::WHITE
+    text_color = Gosu::Color::BLACK
+  end
+
+  # Button border
+  Gosu.draw_rect(
+    x - 2, y - 2,
+    button_width + 4, button_height + 4,
+    Gosu::Color.rgb(180, 180, 180),
+    ZOrder::MIDDLE
+  )
+
+  # Button background
+  Gosu.draw_rect(
+    x, y,
+    button_width, button_height,
+    button_color,
+    ZOrder::MIDDLE
+  )
+
+  # Centre the button text
+  text_x = x + (button_width - @button_font.text_width(text)) / 2
+  text_y = y + (button_height - @button_font.height) / 2
+
+  @button_font.draw_text(
+    text, text_x, text_y,
+    ZOrder::TOP,
+    1.0, 1.0,
+    text_color
+  )
+end
+
+
+
+def draw_menu()
+  # Background
   Gosu.draw_rect(
     0, 0,
     width, height,
-    Gosu::Color::WHITE,
+    Gosu::Color.rgb(245, 245, 245),
     ZOrder::BACKGROUND
   )
 
-  title = "DRAFTIFY"
-  title_x = (width - @font.text_width(title)) / 2
+  # Large DRAFTIFY logo
+  scale_x = (width * 0.85) / @logo.width
+  scale_y = (height * 0.70) / @logo.height
+  scale = [scale_x, scale_y].min
 
-  @font.draw_text(
-    title, title_x, height * 0.2,
-    ZOrder::TOP,
-    2.0, 2.0,
-    Gosu::Color::BLACK
+  logo_x = (width - @logo.width * scale) / 2
+  logo_y = height * 0.03
+
+  @logo.draw(
+    logo_x, logo_y,
+    ZOrder::MIDDLE,
+    scale, scale
   )
 
-  # Start Draft button
-  Gosu.draw_rect(
-    width / 2 - 150, height * 0.45,
-    300, 60,
-    Gosu::Color::BLACK,
-    ZOrder::MIDDLE
-  )
+  # Buttons
+  button_width = 340
+  button_height = 65
+  button_x = (width - button_width) / 2
 
-  # Exit button
-  Gosu.draw_rect(
-    width / 2 - 150, height * 0.60,
-    300, 60,
-    Gosu::Color::BLACK,
-    ZOrder::MIDDLE
-  )
+  start_y = height * 0.60
+  exit_y = height * 0.75
 
-  @font.draw_text(
-    "START DRAFT",
-    width / 2 - 75, height * 0.45 + 18,
-    ZOrder::TOP,
-    1.0, 1.0,
-    Gosu::Color::WHITE
-  )
-
-  @font.draw_text(
-    "EXIT",
-    width / 2 - 22, height * 0.60 + 18,
-    ZOrder::TOP,
-    1.0, 1.0,
-    Gosu::Color::WHITE
-  )
-  end
+  draw_button("START DRAFT", button_x, start_y, button_width, button_height)
+  draw_button("EXIT", button_x, exit_y, button_width, button_height)
+end
 
   def button_down(id)
     if id == Gosu::MsLeft
@@ -126,17 +165,18 @@ class GameWindow < Gosu::Window
         @screen = :menu
 
       when :menu
-        button_x = width / 2 - 150
+        button_width = 340
+        button_height = 65
+        button_x = (width - button_width) / 2
 
-        if mouse_x >= button_x && mouse_x <= button_x + 300
+        start_y = height * 0.60
+        exit_y = height * 0.75
 
-          if mouse_y >= height * 0.45 && mouse_y <= height * 0.45 + 60
-            puts "Start Draft clicked!"
+        if mouse_over_button?(button_x, start_y, button_width, button_height)
+          puts "Start Draft clicked!"
 
-          elsif mouse_y >= height * 0.60 && mouse_y <= height * 0.60 + 60
-            close
-          end
-
+        elsif mouse_over_button?(button_x, exit_y, button_width, button_height)
+          close
         end
       end
 
