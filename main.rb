@@ -16,13 +16,20 @@ class GameWindow < Gosu::Window
 
     @logo = Gosu::Image.new("media/draftify_logo.png")
 
-    @font = Gosu::Font.new(25, name: "fonts/Baloo2-ExtraBold.ttf")
-    @button_font = Gosu::Font.new(29, name: "fonts/Baloo2-ExtraBold.ttf")
+    @font = Gosu::Font.new(36, name: "fonts/Baloo2-ExtraBold.ttf")
+    @button_font = Gosu::Font.new(42, name: "fonts/Baloo2-ExtraBold.ttf")
+    @title_font = Gosu::Font.new(55, name: "fonts/Baloo2-ExtraBold.ttf")
+    @formation_font = Gosu::Font.new(52, name: "fonts/Baloo2-ExtraBold.ttf")
 
     @screen = :splash
 
     @formations = ["4-3-3", "4-2-3-1", "4-4-2"]
     @selected_formation = nil
+
+    @spinning = false
+    @highlight_index = nil
+    @spin_steps = 0
+    @last_spin_time = 0
   end
 
   
@@ -64,6 +71,23 @@ class GameWindow < Gosu::Window
     )
   end
 
+  def update()
+    if @spinning
+      current_time = Gosu.milliseconds
+
+      if current_time - @last_spin_time >= 150
+        @highlight_index = (@highlight_index + 1) % @formations.length
+        @last_spin_time = current_time
+      end
+    end
+  end
+
+  def start_spin()
+  @spinning = true
+  @highlight_index = 0
+  @last_spin_time = Gosu.milliseconds
+  end
+  
   def draw()
     case @screen
     when :splash
@@ -190,29 +214,65 @@ class GameWindow < Gosu::Window
 
     # Title
     title = "FORMATION"
-    title_x = (width - @font.text_width(title)) / 2
+    title_x = (width - @title_font.text_width(title)) / 2
 
-    @font.draw_text(
+    @title_font.draw_text(
       title, title_x, height * 0.20,
       ZOrder::TOP, 1.0, 1.0,
       Gosu::Color::BLACK
     )
 
-    # Show all formations
-    index = 0
-    while index < @formations.length
-      formation_text = @formations[index]
-      text_x = width * 0.25 + index * (width * 0.25)
-      text_y = height * 0.45
+    
+  # Show all formations in rounded cards
+  card_width = 240
+  card_height = 120
+  card_gap = 30
 
-      @font.draw_text(
-        formation_text, text_x, text_y,
-        ZOrder::TOP, 1.0, 1.0,
-        Gosu::Color::BLACK
-      )
+  total_width = card_width * @formations.length + card_gap * (@formations.length - 1)
+  start_x = (width - total_width) / 2
+  card_y = height * 0.40
 
-      index += 1
+  index = 0
+  while index < @formations.length
+    formation_text = @formations[index]
+
+    card_x = start_x + index * (card_width + card_gap)
+
+    # Grey border
+    draw_rounded_button(
+      card_x - 2, card_y - 2,
+      card_width + 4, card_height + 4,
+      Gosu::Color.rgb(180, 180, 180),
+      ZOrder::MIDDLE
+    )
+
+    # Highlight the current formation
+    if index == @highlight_index
+      card_color = Gosu::Color.rgb(255, 210, 60)
+    else
+      card_color = Gosu::Color::WHITE
     end
+
+    draw_rounded_button(
+      card_x, card_y,
+      card_width, card_height,
+      card_color,
+      ZOrder::MIDDLE
+    )
+
+    # Centre the formation text
+    text_x = card_x + (card_width - @formation_font.text_width(formation_text)) / 2
+    text_y = card_y + (card_height - @formation_font.height) / 2
+
+    @formation_font.draw_text(
+      formation_text, text_x, text_y,
+      ZOrder::TOP, 1.0, 1.0,
+      Gosu::Color::BLACK
+    )
+
+    index += 1
+  end
+
 
     # Show the selected formation
     if @selected_formation != nil
@@ -267,7 +327,7 @@ class GameWindow < Gosu::Window
         button_y = height * 0.78
 
         if mouse_over_button?(button_x, button_y, button_width, button_height)
-        random_formation()
+          start_spin()
         end
       end
 
