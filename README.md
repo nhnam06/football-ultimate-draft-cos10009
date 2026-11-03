@@ -1,22 +1,25 @@
-# Football Ultimate Draft
+# DRAFTIFY
 
-A football squad-building game developed using Ruby and Gosu for COS10009 - Introduction to Programming.
+DRAFTIFY is a football squad-building game developed using Ruby and Gosu for COS10009 - Introduction to Programming.
 
 ## Game Description
 
-Players build a team of 11 footballers from English Premier League clubs.
+Players build a starting lineup of 11 footballers from English Premier League clubs.
 
-The game randomly selects a formation and a football club. The user chooses footballers to fill the positions in the formation.
+At the beginning of each game, the program randomly selects a formation (4-3-3, 4-2-3-1, or 4-4-2).
 
-Once all 11 positions are filled, the game calculates the total OVR and awards an achievement.
+In each round, the program randomly selects a football club. The player then chooses one footballer to fill an available position in the formation.
 
-## Features
+Once all 11 positions are filled, the game calculates the team's total overall rating (OVR) and awards an achievement: Bronze, Silver, Gold, or Legendary.
+
+## Planned Features
 
 - Random football formations
 - Random English Premier League clubs
 - Player selection using mouse clicks
-- 11-player squad building
+- 11-player squad building with position validation
 - OVR calculation and achievements
+- Graphical interface using Gosu
 
 ## Technologies
 
