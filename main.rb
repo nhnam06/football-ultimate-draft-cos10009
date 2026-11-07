@@ -10,6 +10,25 @@ WIN_HEIGHT = 900
 
 class GameWindow < Gosu::Window
 
+class Player
+  attr_accessor :name, :position, :ovr
+
+  def initialize(name, position, ovr)
+    @name = name
+    @position = position
+    @ovr = ovr
+  end
+end
+
+class Club
+  attr_accessor :name, :players
+
+  def initialize(name, players)
+    @name = name
+    @players = players
+  end
+end
+
   def initialize()
     super(WIN_WIDTH, WIN_HEIGHT, resizable: true)
     self.caption = "DRAFTIFY"
@@ -25,6 +44,13 @@ class GameWindow < Gosu::Window
 
     @formations = ["4-3-3", "4-2-3-1", "4-4-2"]
     @selected_formation = nil
+
+    @club_data = read_clubs()
+    puts "Loaded #{@club_data.length} lines from clubs.txt"
+
+    @clubs = build_clubs(@club_data)
+    puts "Loaded #{@clubs.length} clubs"
+
     @formation_positions = {
       "4-3-3" => [
         "LW", "ST", "RW",
@@ -491,6 +517,43 @@ class GameWindow < Gosu::Window
         end
       end
     end
+  end
+
+  def read_clubs()
+    file = File.open("clubs.txt", "r")
+    lines = file.readlines
+    file.close
+
+    return lines
+  end
+  
+  def build_clubs(lines)
+    clubs = []
+    line_index = 0
+
+    while line_index < lines.length
+      club_name = lines[line_index].strip
+      player_count = lines[line_index + 1].to_i
+      line_index += 2
+
+      players = []
+      player_index = 0
+
+      while player_index < player_count
+        name, position, ovr = lines[line_index].strip.split(",")
+
+        player = Player.new(name, position, ovr.to_i)
+        players << player
+
+        line_index += 1
+        player_index += 1
+      end
+
+      club = Club.new(club_name, players)
+      clubs << club
+    end
+
+    return clubs
   end
 
   def needs_cursor?
