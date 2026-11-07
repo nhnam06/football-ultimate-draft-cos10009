@@ -108,6 +108,8 @@ class GameWindow < Gosu::Window
       draw_menu()
     when :formation
       draw_formation()
+    when :pitch
+      draw_pitch()
     end
   end
 
@@ -298,6 +300,16 @@ class GameWindow < Gosu::Window
       )
     end
 
+    # Continue button
+    if @selected_formation != nil
+      button_width = 340
+      button_height = 65
+      button_x = (width - button_width) / 2
+      button_y = height * 0.88
+
+      draw_button("CONTINUE", button_x, button_y, button_width, button_height)
+    end
+
     # Spin button
     button_width = 340
     button_height = 65
@@ -307,6 +319,28 @@ class GameWindow < Gosu::Window
     draw_button("SPIN", button_x, button_y, button_width, button_height)
   end
 
+  def draw_pitch()
+    # Background
+    Gosu.draw_rect(
+      0, 0, width, height,
+      Gosu::Color.rgb(245, 245, 245),
+      ZOrder::BACKGROUND
+    )
+
+    # Football pitch
+    pitch_width = width * 0.65
+    pitch_height = height * 0.75
+
+    pitch_x = (width - pitch_width) / 2
+    pitch_y = height * 0.15
+
+    Gosu.draw_rect(
+      pitch_x, pitch_y,
+      pitch_width, pitch_height,
+      Gosu::Color.rgb(70, 160, 95),
+      ZOrder::MIDDLE
+    )
+  end
 
   def button_down(id)
     if id == Gosu::MsLeft
@@ -336,13 +370,18 @@ class GameWindow < Gosu::Window
         button_width = 340
         button_height = 65
         button_x = (width - button_width) / 2
-        button_y = height * 0.78
 
-        if mouse_over_button?(button_x, button_y, button_width, button_height)
+        spin_y = height * 0.78
+        continue_y = height * 0.88
+
+        if @selected_formation != nil &&
+          mouse_over_button?(button_x, continue_y, button_width, button_height)
+          @screen = :pitch
+
+        elsif mouse_over_button?(button_x, spin_y, button_width, button_height)
           start_spin()
         end
       end
-
     end
   end
 
