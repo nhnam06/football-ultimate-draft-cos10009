@@ -337,6 +337,7 @@ class GameWindow < Gosu::Window
     end
   
   
+  
   def draw_positions(pitch_x, pitch_y, pitch_width, pitch_height)
     positions = @formation_positions[@selected_formation]
 
@@ -361,13 +362,30 @@ class GameWindow < Gosu::Window
         x = pitch_x + pitch_width * (column + 1) / (players_in_row + 1)
         y = pitch_y + pitch_height * (row + 1) / (rows.length + 1)
 
+        # Draw black circle border
+        draw_rounded_button(
+          x - 37, y - 37,
+          74, 74,
+          Gosu::Color::BLACK,
+          ZOrder::MIDDLE
+        )
+
+        # Draw white circle
+        draw_rounded_button(
+          x - 35, y - 35,
+          70, 70,
+          Gosu::Color::WHITE,
+          ZOrder::MIDDLE
+        )
+
+        # Centre position text
         text_x = x - @font.text_width(position) / 2
         text_y = y - @font.height / 2
 
         @font.draw_text(
           position, text_x, text_y,
           ZOrder::TOP, 1.0, 1.0,
-          Gosu::Color::WHITE
+          Gosu::Color::BLACK
         )
 
         index += 1
@@ -377,7 +395,6 @@ class GameWindow < Gosu::Window
       row += 1
     end
   end
-
 
   def draw_pitch()
     # Background
