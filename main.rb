@@ -25,6 +25,28 @@ class GameWindow < Gosu::Window
 
     @formations = ["4-3-3", "4-2-3-1", "4-4-2"]
     @selected_formation = nil
+    @formation_positions = {
+      "4-3-3" => [
+        "LW", "ST", "RW",
+        "CM", "CM", "CM",
+        "LB", "CB", "CB", "RB",
+        "GK"
+      ],
+      "4-2-3-1" => [
+        "ST",
+        "LW", "CAM", "RW",
+        "CDM", "CDM",
+        "LB", "CB", "CB", "RB",
+        "GK"
+      ],
+      "4-4-2" => [
+        "ST", "ST",
+        "LM", "CM", "CM", "RM",
+        "LB", "CB", "CB", "RB",
+        "GK"
+      ]
+    }
+
 
     @spinning = false
     @highlight_index = nil
@@ -313,6 +335,49 @@ class GameWindow < Gosu::Window
         draw_button("CONTINUE", button_x, button_y, button_width, button_height)
       end
     end
+  
+  
+  def draw_positions(pitch_x, pitch_y, pitch_width, pitch_height)
+    positions = @formation_positions[@selected_formation]
+
+    if @selected_formation == "4-3-3"
+      rows = [3, 3, 4, 1]
+    elsif @selected_formation == "4-2-3-1"
+      rows = [1, 3, 2, 4, 1]
+    else
+      rows = [2, 4, 4, 1]
+    end
+
+    index = 0
+    row = 0
+
+    while row < rows.length
+      players_in_row = rows[row]
+      column = 0
+
+      while column < players_in_row
+        position = positions[index]
+
+        x = pitch_x + pitch_width * (column + 1) / (players_in_row + 1)
+        y = pitch_y + pitch_height * (row + 1) / (rows.length + 1)
+
+        text_x = x - @font.text_width(position) / 2
+        text_y = y - @font.height / 2
+
+        @font.draw_text(
+          position, text_x, text_y,
+          ZOrder::TOP, 1.0, 1.0,
+          Gosu::Color::WHITE
+        )
+
+        index += 1
+        column += 1
+      end
+
+      row += 1
+    end
+  end
+
 
   def draw_pitch()
     # Background
@@ -363,6 +428,8 @@ class GameWindow < Gosu::Window
       Gosu::Color::WHITE,
       ZOrder::TOP
     )
+    
+    draw_positions(pitch_x, pitch_y, pitch_width, pitch_height)
   end
 
   def button_down(id)
