@@ -235,22 +235,21 @@ class GameWindow < Gosu::Window
       ZOrder::TOP, 1.0, 1.0,
       Gosu::Color::BLACK
     )
-
     
-  # Show all formations in rounded cards
-  card_width = 240
-  card_height = 120
-  card_gap = 30
+    # Show all formations in rounded cards
+    card_width = 240
+    card_height = 120
+    card_gap = 30
 
-  total_width = card_width * @formations.length + card_gap * (@formations.length - 1)
-  start_x = (width - total_width) / 2
-  card_y = height * 0.40
+    total_width = card_width * @formations.length + card_gap * (@formations.length - 1)
+    start_x = (width - total_width) / 2
+    card_y = height * 0.40
 
-  index = 0
-  while index < @formations.length
-    formation_text = @formations[index]
+    index = 0
+    while index < @formations.length
+      formation_text = @formations[index]
 
-    card_x = start_x + index * (card_width + card_gap)
+      card_x = start_x + index * (card_width + card_gap)
 
     # Grey border
     draw_rounded_button(
@@ -300,24 +299,20 @@ class GameWindow < Gosu::Window
       )
     end
 
-    # Continue button
-    if @selected_formation != nil
+    # Spin or Continue button
       button_width = 340
       button_height = 65
       button_x = (width - button_width) / 2
-      button_y = height * 0.88
+      button_y = height * 0.78
 
-      draw_button("CONTINUE", button_x, button_y, button_width, button_height)
+      if @selected_formation == nil
+        if !@spinning
+          draw_button("SPIN", button_x, button_y, button_width, button_height)
+        end
+      else
+        draw_button("CONTINUE", button_x, button_y, button_width, button_height)
+      end
     end
-
-    # Spin button
-    button_width = 340
-    button_height = 65
-    button_x = (width - button_width) / 2
-    button_y = height * 0.78
-
-    draw_button("SPIN", button_x, button_y, button_width, button_height)
-  end
 
   def draw_pitch()
     # Background
@@ -339,6 +334,34 @@ class GameWindow < Gosu::Window
       pitch_width, pitch_height,
       Gosu::Color.rgb(70, 160, 95),
       ZOrder::MIDDLE
+    )
+    # White pitch border
+    Gosu.draw_rect(
+      pitch_x + 10, pitch_y + 10,
+      pitch_width - 20, 4,
+      Gosu::Color::WHITE,
+      ZOrder::TOP
+    )
+
+    Gosu.draw_rect(
+      pitch_x + 10, pitch_y + pitch_height - 14,
+      pitch_width - 20, 4,
+      Gosu::Color::WHITE,
+      ZOrder::TOP
+    )
+
+    Gosu.draw_rect(
+      pitch_x + 10, pitch_y + 10,
+      4, pitch_height - 20,
+      Gosu::Color::WHITE,
+      ZOrder::TOP
+    )
+
+    Gosu.draw_rect(
+      pitch_x + pitch_width - 14, pitch_y + 10,
+      4, pitch_height - 20,
+      Gosu::Color::WHITE,
+      ZOrder::TOP
     )
   end
 
@@ -370,16 +393,17 @@ class GameWindow < Gosu::Window
         button_width = 340
         button_height = 65
         button_x = (width - button_width) / 2
+        button_y = height * 0.78
 
-        spin_y = height * 0.78
-        continue_y = height * 0.88
+        if @selected_formation != nil
+          if mouse_over_button?(button_x, button_y, button_width, button_height)
+            @screen = :pitch
+          end
 
-        if @selected_formation != nil &&
-          mouse_over_button?(button_x, continue_y, button_width, button_height)
-          @screen = :pitch
-
-        elsif mouse_over_button?(button_x, spin_y, button_width, button_height)
-          start_spin()
+        elsif !@spinning
+          if mouse_over_button?(button_x, button_y, button_width, button_height)
+            start_spin()
+          end
         end
       end
     end
