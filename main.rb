@@ -11,11 +11,11 @@ WIN_HEIGHT = 900
 class GameWindow < Gosu::Window
 
 class Player
-  attr_accessor :name, :position, :ovr
+  attr_accessor :name, :positions, :ovr
 
-  def initialize(name, position, ovr)
+  def initialize(name, positions, ovr)
     @name = name
-    @position = position
+    @positions = positions
     @ovr = ovr
   end
 end
@@ -580,7 +580,7 @@ end
         Gosu::Color::BLACK
       )
 
-      details = "#{player.position} | OVR #{player.ovr}"
+      details = "#{player.positions.join(' / ')} | OVR #{player.ovr}"
 
       @draft_font.draw_text(
         details,
@@ -782,7 +782,7 @@ end
               mouse_x <= slot_x + 35 &&
               mouse_y >= slot_y - 35 &&
               mouse_y <= slot_y + 35 &&
-              @selected_player.position == slot_position &&
+              @selected_player.positions.include?(slot_position) &&
               @squad[slot_index] == nil
 
               @squad[slot_index] = @selected_player
@@ -861,9 +861,10 @@ end
       player_index = 0
 
       while player_index < player_count
-        name, position, ovr = lines[line_index].strip.split(",")
+        name, positions_text, ovr = lines[line_index].strip.split(",")
+        positions = positions_text.split("|")
 
-        player = Player.new(name, position, ovr.to_i)
+        player = Player.new(name, positions, ovr.to_i)
         players << player
 
         line_index += 1
