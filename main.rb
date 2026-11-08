@@ -705,14 +705,35 @@ end
               mouse_y <= slot_y + 35 &&
               @selected_player.position == slot_position &&
               @squad[slot_index] == nil
-
+                            
               @squad[slot_index] = @selected_player
               @placed_this_round = true
 
               puts "Placed #{@selected_player.name} at #{slot_position}"
 
               @selected_player = nil
+
+              # Move to the next draft round
+              if @draft_round < 11
+                @draft_round += 1
+
+                @current_club = random_eligible_club()
+
+                if @current_club != nil
+                  @eligible_players = filter_players(@current_club)
+                  @scroll_offset = 0
+                  @placed_this_round = false
+                else
+                  puts "No eligible clubs available"
+                  @screen = :pitch
+                end
+              else
+                puts "Draft complete!"
+                @screen = :pitch
+              end
+
               break
+
             end
 
             slot_index += 1
