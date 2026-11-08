@@ -569,17 +569,21 @@ end
       ZOrder::TOP, 1.0, 1.0,
       Gosu::Color::BLACK
     )
-
     
     # Display large club logo
     club_logo = @club_logos[display_club.name]
 
     if club_logo != nil
-      logo_scale = [80.0 / club_logo.width, 80.0 / club_logo.height].min
+      logo_scale = 80.0 / club_logo.height
+      if club_logo.width * logo_scale > panel_width - 40
+        logo_scale = (panel_width - 40.0) / club_logo.width
+      end
+
       logo_x = panel_x + (panel_width - club_logo.width * logo_scale) / 2
+      logo_y = panel_y + 40 + (80 - club_logo.height * logo_scale) / 2
 
       club_logo.draw(
-        logo_x, panel_y + 40,
+        logo_x, logo_y,
         ZOrder::TOP, logo_scale, logo_scale
       )
     end
@@ -811,7 +815,7 @@ end
         panel_width = width * 0.24
 
         player_x = panel_x + 12
-        first_player_y = panel_y + 110
+        first_player_y = panel_y + 165
 
         if mouse_x >= player_x &&
           mouse_x <= player_x + panel_width - 24 &&
