@@ -800,7 +800,7 @@ end
         position_index += 1
       end
 
-      if suitable
+      if suitable && !@squad.include?(player)
         eligible << player
       end
 
