@@ -672,6 +672,15 @@ end
       ZOrder::TOP, 1.0, 1.0,
       Gosu::Color::BLACK
     )
+    # Result screen buttons
+    button_width = panel_width - 20
+    button_height = 55
+    button_x = panel_x + 10
+    button_y = height * 0.76
+
+    draw_button("RESTART", button_x, button_y, button_width, button_height)
+    draw_button("MAIN MENU", button_x, button_y + 65, button_width, button_height)
+    draw_button("EXIT", button_x, button_y + 130, button_width, button_height)
   end
 
   def button_down(id)
@@ -824,7 +833,10 @@ end
             slot_index += 1
           end
         end
-      end    
+
+      when :result
+        handle_result_click()
+      end 
     end
   end
 
@@ -937,6 +949,46 @@ end
 
   def needs_cursor?
     return true
+  end
+  
+  def reset_game()
+    @selected_formation = nil
+    @highlight_index = nil
+    @spinning = false
+
+    @draft_round = 1
+    @squad = Array.new(11)
+    @current_club = nil
+    @eligible_players = []
+    @selected_player = nil
+    @placed_this_round = false
+    @scroll_offset = 0
+
+    @team_ovr = nil
+    @team_rank = nil
+    @slot_positions = []
+  end
+
+  def handle_result_click()
+    panel_x = width * 0.73
+    panel_width = width * 0.24
+
+    button_width = panel_width - 20
+    button_height = 55
+    button_x = panel_x + 10
+    button_y = height * 0.76
+
+    if mouse_over_button?(button_x, button_y, button_width, button_height)
+      reset_game()
+      @screen = :formation
+
+    elsif mouse_over_button?(button_x, button_y + 65, button_width, button_height)
+      reset_game()
+      @screen = :menu
+
+    elsif mouse_over_button?(button_x, button_y + 130, button_width, button_height)
+      close
+    end
   end
 
   def random_formation()
