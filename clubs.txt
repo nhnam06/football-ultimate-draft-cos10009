@@ -1,584 +1,594 @@
 Arsenal
 23
-Gabriel,CB,89
-W. Saliba,CB,88
-D. Rice,CDM,88
-B. Saka,RW,87
-David Raya,GK,87
-M. Odegaard,CM,86
-V. Gyokeres,ST,86
-Zubimendi,CDM,85
-J. Timber,RB,84
-E. Eze,CAM,84
-P. Hincapie,LB,83
-L. Trossard,LW,83
+David Raya,GK,88
+William Saliba,CB,88
+Cristhian Mosquera,CB,78
+Ben White,RB,81
+Piero Hincapie,LB,84
+Gabriel Magalhaes,CB,89
+Bukayo Saka,RW,87
+Martin Odegaard,CM,86
+Eberechi Eze,CAM,84
+Jurrien Timber,RB,84
+Kepa Arrizabalaga,GK,78
+Viktor Gyokeres,ST,86
+Ezri Konsa,CB,84
+Christos Tzolis,LW,82
+Noni Madueke,RW,80
 Mikel Merino,CM,83
-R. Calafiori,LB,82
-K. Havertz,ST,82
-B. White,RB,82
-Gabriel Martinelli,LW,81
-N. Madueke,RW,80
-C. Norgaard,CDM,80
-Gabriel Jesus,ST,80
-Kepa,GK,79
-M. Lewis-Skelly,LB,78
-Cristhian Mosquera,CB,77
-Liverpool
-30
-M. Salah,RM,89
-V. van Dijk,CB,88
-Alisson,GK,88
-F. Wirtz,CAM,87
-A. Isak,ST,87
-R. Gravenberch,CDM,86
-D. Szoboszlai,CAM,86
-H. Ekitike,ST,85
-A. Mac Allister,CM,85
-I. Konate,CB,84
-G. Mamardashvili,GK,83
-C. Gakpo,LM,83
-J. Frimpong,RB,82
-M. Kerkez,LB,81
-A. Robertson,LB,81
-C. Jones,CM,80
-F. Chiesa,RM,80
-C. Bradley,RB,79
-J. Gomez,CB,79
-W. Endo,CDM,79
-Stefan Bajcetic,CDM,73
-R. Ngumoha,LM,72
-F. Woodman,GK,71
-G. Leoni,CB,69
-J. McConnell,CDM,68
-T. Nyoni,CM,65
-C. Ramsay,RB,65
-A. Pecsi,GK,64
-H. Davies,GK,61
-R. Williams,CB,61
-Manchester City
-27
-E. Haaland,ST,91
-G. Donnarumma,GK,89
-Rodri,CDM,89
-Ruben Dias,CB,87
-P. Foden,CAM,85
-J. Gvardiol,CB,85
-T. Reijnders,CM,85
-R. Cherki,RW,84
-M. Guehi,CB,84
-A. Semenyo,RW,84
-J. Doku,LW,83
-Bernardo Silva,CM,83
-O. Marmoush,LW,83
-Matheus Nunes,RB,82
-J. Stones,CB,82
-M. Kovacic,CM,82
-N. Ake,CB,82
-Savinho,RW,81
-N. O'Reilly,LB,81
-R. Ait-Nouri,LB,81
-Nico Gonzalez,CDM,81
-A. Khusanov,CB,80
-J. Trafford,GK,77
-R. Lewis,RB,77
-S. Nypan,CM,70
-M. Bettinelli,GK,70
-M. Alleyne,CB,68
-Aston Villa
-27
-E. Martinez,GK,85
-Y. Tielemans,CM,85
-B. Kamara,CDM,84
-M. Rogers,CAM,84
-E. Konsa,CB,84
-O. Watkins,ST,82
-A. Onana,CDM,81
-J. McGinn,RM,81
-M. Cash,RB,81
-L. Digne,LB,80
-Pau Torres,CB,80
-I. Maatsen,LB,79
-J. Sancho,LM,79
-Douglas Luiz,CDM,79
-H. Elliott,CAM,78
-M. Bizot,GK,78
-T. Mings,CB,78
-E. Buendia,LM,78
-L. Bailey,RM,78
-R. Barkley,CM,77
-T. Abraham,ST,77
-V. Lindelof,CB,76
-L. Bogarde,CDM,74
-Andres Garcia,RB,73
-Alysson,RM,70
-B. Burrowes,RM,65
-G. Hemmings,CDM,65
-Chelsea
-30
-M. Caicedo,CDM,88
-C. Palmer,CAM,86
-E. Fernandez,CM,85
-Marc Cucurella,LB,85
-R. James,RB,84
-Joao Pedro,ST,82
-Pedro Neto,RM,82
-Robert Sanchez,GK,81
-Andrey Santos,CM,80
-L. Colwill,CB,80
-T. Chalobah,CB,80
-Estevao,RM,79
-M. Gusto,RB,79
-W. Fofana,CB,79
-J. Hato,LB,78
-R. Lavia,CDM,78
-J. Gittens,LM,78
-A. Garnacho,LM,78
-T. Adarabioyo,CB,78
-M. Sarr,CB,77
-F. Jorgensen,GK,77
-L. Delap,ST,77
-B. Badiashile,CB,76
-Dario Essugo,CDM,75
-J. Acheampong,CB,74
-Marc Guiu,ST,71
-J. Derry,LM,68
-G. Slonina,GK,68
-S. Mheuka,ST,66
-T. Sharman-Lowe,GK,64
-Manchester United
-30
-Bruno Fernandes,CAM,88
-B. Mbeumo,RW,85
-Matheus Cunha,CAM,83
-M. de Ligt,CB,82
-Casemiro,CDM,82
-S. Lammens,GK,81
-L. Martinez,CB,81
-H. Maguire,CB,81
-B. Sesko,ST,80
-Amad,RM,80
-N. Mazraoui,RB,80
-K. Mainoo,CDM,79
-L. Shaw,LB,79
-L. Yoro,CB,78
-M. Ugarte,CDM,78
-M. Mount,CAM,78
-Diogo Dalot,RB,78
-P. Dorgu,LM,77
-J. Zirkzee,ST,77
-A. Bayindir,GK,75
-T. Malacia,LB,75
-A. Heaven,CB,74
-T. Heaton,GK,67
-C. Obi,ST,65
-S. Lacey,RM,65
-T. Fredricson,CB,65
-D. Leon,LB,64
-J. Fletcher,CM,63
-B. Mantato,RM,62
-T. Fletcher,CM,62
-Tottenham Hotspur
-31
-D. Kulusevski,CM,83
-J. Maddison,CM,83
-Pedro Porro,RB,82
-X. Simons,CAM,82
-M. van de Ven,CB,82
-C. Romero,CB,82
-Palhinha,CDM,82
-M. Kudus,RW,81
-G. Vicario,GK,81
-P. Sarr,CM,80
-R. Bentancur,CDM,80
-D. Solanke,ST,80
-D. Spence,LB,79
-D. Udogie,LB,79
-K. Danso,CB,79
-C. Gallagher,CM,79
-R. Kolo Muani,ST,79
-Richarlison,ST,79
-L. Bergvall,CM,78
-Y. Bissouma,CDM,78
-A. Gray,CDM,77
-M. Tel,ST,77
-W. Odobert,LW,77
-A. Kinsky,GK,75
-R. Dragusin,CB,75
-B. Davies,CB,75
-Souza,LB,70
-B. Austin,GK,67
-C. Olusesi,CM,62
-J. Byfield,CB,62
-J. Rowswell,CB,61
-Newcastle United
-28
+Kai Havertz,ST,81
+Illan Meslier,GK,71
+Riccardo Calafiori,LB,82
+Martin Zubimendi,CDM,84
 Bruno Guimaraes,CM,86
-S. Tonali,CDM,85
-A. Gordon,LW,82
-F. Schar,CB,82
-L. Hall,LB,81
-M. Thiaw,CB,81
-S. Botman,CB,81
-Joelinton,CM,81
-Y. Wissa,ST,81
-T. Livramento,RB,80
-N. Woltemade,ST,80
-D. Burn,CB,80
-H. Barnes,LW,80
-A. Elanga,RW,79
-K. Trippier,RB,79
-N. Pope,GK,79
-J. Murphy,RW,79
-J. Ramsey,CM,77
-A. Ramsdale,GK,77
-L. Miley,CM,76
-J. Willock,CM,76
-W. Osula,ST,73
-E. Krafth,RB,72
-J. Ruddy,GK,68
-A. Murphy,LB,65
-M. Gillespie,GK,62
-L. Shahar,RB,60
-S. Neave,ST,59
-Nottingham Forest
-29
-E. Anderson,CDM,82
-Murillo,CB,82
-M. Gibbs-White,CAM,81
-C. Wood,ST,81
-M. Sels,GK,81
-N. Williams,LB,80
-N. Milenkovic,CB,80
-O. Aina,RB,80
-S. Ortega,GK,79
-C. Hudson-Odoi,LM,78
-I. Sangare,CDM,78
-N. Dominguez,CDM,78
-Igor Jesus,ST,77
-D. Ndoye,LM,77
-O. Hutchinson,RM,76
-D. Bakwa,RM,76
-Morato,CB,76
-R. Yates,CDM,76
-Jair Cunha,CB,75
-N. Savona,RB,75
-L. Lucca,ST,75
-T. Awoniyi,ST,74
-J. McAtee,RM,73
-L. Netz,LB,73
-W. Boly,CB,73
-A. Gunn,GK,72
-John Victor,GK,71
-Z. Abbott,CB,63
-E. da Silva Moreira,RB,61
-Crystal Palace
+Declan Rice,CDM,88
+Myles Lewis-Skelly,LB,78
+Aston Villa
 28
-D. Henderson,GK,82
-J. Mateta,ST,82
-D. Munoz,RB,82
-A. Wharton,CDM,81
-M. Lacroix,CB,81
-I. Sarr,RW,81
-Yeremy Pino,LW,79
-B. Johnson,RW,79
-T. Mitchell,LB,79
-C. Richards,CB,79
-E. Guessand,RW,78
-W. Benitez,GK,78
-D. Kamada,CM,78
-J. Strand Larsen,ST,77
-C. Doucoure,CDM,77
-W. Hughes,CDM,77
-J. Lerma,CDM,77
-C. Uche,ST,76
-E. Nketiah,ST,75
-J. Canvot,CB,74
-C. Riad,CB,72
-B. Sosa,LB,72
-J. Devenny,CM,71
-N. Clyne,RB,70
-R. Matthews,GK,63
-C. Kporha,RB,62
-R. Cardines,RB,62
-K. Rodney,CDM,61
-Brentford
-25
-Igor Thiago,ST,81
-M. Kayode,RB,80
-M. Damsgaard,CAM,80
-K. Schade,LM,79
-C. Kelleher,GK,79
-N. Collins,CB,79
-J. Henderson,CDM,79
-M. Jensen,CM,79
-D. Ouattara,RM,78
-S. van den Berg,CB,77
-Y. Yarmoliuk,CDM,77
-V. Janelt,CDM,77
-K. Lewis-Potter,LB,76
-K. Ajer,CB,76
-R. Henry,LB,76
-A. Hickey,RB,75
-R. Nelson,RM,75
-E. Pinnock,CB,75
-Fabio Carvalho,CAM,74
-A. Milambo,CM,73
-J. Dasilva,CM,72
-H. Valdimarsson,GK,69
-R. Donovan,RM,66
-K. Furo,ST,63
-E. Balcombe,GK,63
-Brighton & Hove Albion
-27
-K. Mitoma,LM,81
-B. Verbruggen,GK,80
-Y. Minteh,RM,80
-C. Baleba,CDM,80
-J. van Hecke,CB,80
-D. Welbeck,ST,80
-Y. Ayari,CDM,79
-M. De Cuyper,LB,79
-F. Kadioglu,LB,79
-M. Wieffer,CDM,78
-O. Boscagli,CB,78
-P. Gross,CDM,78
-J. Veltman,RB,78
-D. Gomez,CDM,77
-G. Rutter,CAM,77
-M. O'Riley,CAM,77
-L. Dunk,CB,77
-J. Hinshelwood,CDM,76
-Igor Julio,CB,75
-A. Webster,CB,75
-S. March,RM,74
-C. Kostoulas,ST,73
-J. Steele,GK,73
-S. Tzimas,ST,72
-H. Howell,RM,64
-T. McGill,GK,62
-N. Oriola,LM,60
+Zion Suzuki,GK,77
+Matty Cash,RB,81
+Victor Lindelof,CB,77
+Taylor Harwood-Bellis,CB,75
+Tyrone Mings,CB,77
+Ross Barkley,CM,77
+John McGinn,RM,83
+Boubacar Kamara,CDM,84
+Emiliano Buendia,LM,80
+Nicolas Jackson,ST,79
+Matteo Ruggeri,LB,78
+Pau Torres,CB,81
+Alejandro Garnacho,LM,77
+Tammy Abraham,ST,77
+Ibrahim Mbaye,RW,76
+Ian Maatsen,LB,79
+Amadou Onana,CDM,81
+Lamare Bogarde,CDM,74
+Leon Goretzka,CDM,81
+Aaron Wan-Bissaka,RB,78
+Joao Gomes,CDM,78
+Brian Madjo,ST,65
+Marco Bizot,GK,77
+James Wright,GK,61
+Johan Manzambi,CM,80
+Alysson,RM,71
+Modou Keba Cisse,CB,68
+George Hemmings,CDM,67
 AFC Bournemouth
 28
-M. Senesi,CB,81
-A. Scott,CDM,80
-B. Diakite,CB,79
-A. Truffert,LB,79
-D. Petrovic,GK,79
-T. Adams,CDM,79
-J. Kluivert,CAM,79
+Djordje Petrovic,GK,79
+Julian Araujo,RB,74
+Adrien Truffert,LB,80
+Lewis Cook,CDM,78
+James Hill,CB,78
+Julio Soler,LB,68
+David Brooks,RM,76
+Alex Scott,CM,81
 Evanilson,ST,79
-Rayan,RM,78
-E. Kroupi,ST,78
-R. Christie,CDM,78
-L. Cook,CDM,78
-M. Tavernier,LM,78
-Alex Jimenez,RB,77
-A. Adli,ST,77
-D. Brooks,RM,76
-E. Unal,ST,76
-J. Hill,CB,75
-C. Mandas,GK,74
-A. Smith,RB,73
-A. Toth,CM,72
-F. Forster,GK,72
-V. Milosavljevic,CB,71
-B. Gannon-Doak,RM,71
-J. Soler,LB,68
-O. Bevan,CB,62
-R. Rees-Dottin,ST,60
-M. Akinmboni,CB,57
-Fulham
-24
-A. Robinson,LB,81
-A. Iwobi,LM,80
-H. Wilson,RM,80
-S. Berge,CDM,79
-B. Leno,GK,79
-J. Andersen,CB,79
-S. Chukwueze,RM,79
-C. Bassey,CB,78
-R. Jimenez,ST,78
-K. Tete,RB,78
-S. Lukic,CDM,78
-E. Smith Rowe,CAM,77
-R. Sessegnon,LB,77
-O. Bobb,RM,76
-Kevin,LM,76
-Rodrigo Muniz,ST,76
-Jorge Cuenca,CB,76
-I. Diop,CB,76
-T. Castagne,RB,75
-J. King,CAM,74
-T. Cairney,CM,74
-B. Lecomte,GK,74
-H. Reed,CDM,72
-J. Kusi-Asare,ST,62
+Ryan Christie,CDM,78
+Ben Gannon-Doak,RM,71
+Tyler Adams,CDM,79
+Antonio Silva,CB,77
+Adam Smith,RB,73
+Marcus Tavernier,LM,78
+Fraser Forster,GK,71
+Bafode Diakite,CB,79
+Justin Kluivert,CAM,79
+Michele Di Gregorio,GK,80
+Amine Adli,LM,77
+Junior Kroupi,ST,80
+Juanlu Sanchez,RB,76
+Alex Toth,CM,73
+Max Aarons,RB,70
+Daniel Jebbison,ST,68
+Alvaro Rodriguez,ST,75
+Rayan,RM,79
+Veljko Milosavljevic,CB,72
+Brentford
+29
+Caoimhin Kelleher,GK,80
+Aaron Hickey,RB,75
+Rico Henry,LB,76
+Sepp van den Berg,CB,78
+Yehor Yarmoliuk,CDM,78
+Kevin Schade,LM,79
+Mathias Jensen,CM,80
+Igor Thiago,ST,82
+Josh Dasilva,CM,71
+Dango Ouattara,RM,79
+Hakon Valdimarsson,GK,69
+Callum Wilson,ST,76
+Fabio Carvalho,CAM,74
+Antoni Milambo,CM,73
+Mamadou Sangare,CM,81
+Jaidon Anthony,LM,76
+Kristoffer Ajer,CB,77
+Nathan Collins,CB,79
+Keane Lewis-Potter,LB,77
+Mikkel Damsgaard,CAM,80
+El Hadji Malick Diouf,LB,78
+Vitaly Janelt,CDM,78
+Ellery Balcombe,GK,63
+Michael Kayode,RB,81
+Kim Ji-Soo,CB,65
+Gustavo Nunes,LM,67
+Jannik Schuster,CB,69
+Benjamin Fredrick,CB,63
+K. Furo,ST,65
+Brighton & Hove Albion
+30
+Bart Verbruggen,GK,81
+Jaouen Hadjam,LB,69
+Pascal Struijk,CB,76
+Lewis Dunk,CB,77
+Kaoru Mitoma,LM,81
+Jack Hinshelwood,CDM,77
+Stefanos Tzimas,ST,73
+Georginio Rutter,CAM,77
+Yankuba Minteh,RM,80
+Promise David,ST,76
+Pascal Gross,CDM,79
+Chema Andres,CDM,74
+Ibrahim Osman,LM,72
+Charalampos Kostoulas,ST,74
+Costinha,RB,75
+Olivier Boscagli,CB,78
+Jason Steele,GK,73
+Ferdi Kadioglu,LB,80
+Diego Gomez,CM,78
+Yasin Ayari,CDM,79
+Mats Wieffer,RB,79
+Evan Ferguson,ST,74
+Maxim De Cuyper,LB,78
+Michael Svoboda,CB,72
+Matt O'Riley,CAM,77
+Malick Yalcouye,CM,72
+Zadok Yohanna,RM,67
+Tom McGill,GK,62
+Femi Azeez,RM,75
+Luka Vuskovic,CB,81
+Chelsea
+29
+Emiliano Martinez,GK,85
+Marco Palestra,RB,78
+Wesley Fofana,CB,79
+Valentin Barco,CM,79
+Maxence Lacroix,CB,82
+Levi Colwill,CB,80
+Pedro Neto,RM,81
+Joao Pedro,ST,83
+Cole Palmer,CAM,85
+Jamie Gittens,LM,77
+Jordan Henderson,CDM,78
+Morgan Rogers,CAM,84
+Danny Welbeck,ST,80
+Jorrel Hato,LB,78
+Emmanuel Emegha,ST,78
+Geovany Quenda,RM,76
+Reece James,RB,84
+Moises Caicedo,CDM,86
+Malo Gusto,RB,79
+Teddy Sharman-Lowe,GK,64
+Pep Chavarria,LB,79
+Aaron Anselmino,CB,72
+Kendry Paez,CAM,74
+Josh Acheampong,CB,75
+Olutayo Subuloye,CB,62
+Mike Penders,GK,78
+Estevao,RM,80
+Gabriel Slonina,GK,68
+Romeo Lavia,CDM,78
+Coventry City
+30
+Ethan Pinnock,CB,75
+Jay Dasilva,LB,73
+Bobby Thomas,CB,74
+Jack Rudoni,CAM,75
+Matt Grimes,CDM,76
+Tatsuhiro Sakamoto,RM,74
+Caleb Yirenkyi,CM,73
+Ellis Simms,ST,71
+Ephron Mason-Clark,LM,75
+Haji Wright,ST,74
+Stephen Mfuni,CB,69
+Ben Wilson,GK,68
+Taiwo Awoniyi,ST,74
+Frank Onyeka,CDM,75
+Loum Tchaouna,RM,73
+Carl Rushworth,GK,76
+Kaine Kesler-Hayden,RB,72
+Jake Bidwell,LB,68
+Joel Latibeaudiere,CB,71
+Brandon Thomas-Asante,ST,73
+Aurele Amenda,CB,74
+Dan Bentley,GK,70
+Luke Woolfenden,CB,72
+Milan van Ewijk,RB,75
+Josh Eccles,CDM,71
+Victor Torp,CDM,73
+Yann Gboho,LW,77
+Gustavo Hamer,LM,75
+Sidiki Cherif,ST,72
+Oliver Dovin,GK,70
+Crystal Palace
+28
+Dean Henderson,GK,82
+Tyrick Mitchell,LB,79
+Chadi Riad,CB,74
+Axel Disasi,CB,77
+Jaydee Canvot,CB,76
+Ismaila Sarr,RW,81
+Jefferson Lerma,CDM,76
+Eddie Nketiah,ST,75
+Yeremy Pino,LW,79
+Dwight McNeil,RM,76
+Zavier Gozo,RM,71
+Jean-Philippe Mateta,ST,81
+Takehiro Tomiyasu,LB,76
+Daichi Kamada,CM,79
+Will Hughes,CDM,77
+Adam Wharton,CM,82
+Honest Ahanor,CB,74
+Jorgen Strand Larsen,ST,77
+Quinten Timber,CM,79
+Dario Osorio,RM,74
+Anan Khalaili,RM,78
+Chris Richards,CB,80
+Cheick Doucoure,CDM,76
+Evann Guessand,RW,78
+Oscar Mingueza,RB,80
+Remi Matthews,GK,63
+Ben Chilwell,LB,77
+Walter Benitez,GK,78
 Everton
-25
-J. Pickford,GK,85
-I. Ndiaye,RM,82
-J. Grealish,LM,82
-J. Garner,CDM,81
-K. Dewsbury-Hall,CAM,80
-J. Tarkowski,CB,80
-J. Branthwaite,CB,79
-I. Gueye,CDM,79
-D. McNeil,LM,77
-V. Mykolenko,LB,77
-T. Barry,ST,76
-J. O'Brien,RB,76
-T. Iroegbunam,CDM,76
-M. Keane,CB,76
-Beto,ST,76
-C. Alcaraz,CAM,75
-T. Dibling,RM,74
-M. Rohl,CAM,74
-H. Armstrong,CM,73
-M. Travers,GK,72
-T. George,LM,71
-N. Patterson,RB,71
-S. Coleman,RB,70
-A. Aznou,LB,66
-T. King,GK,64
-West Ham United
-25
-J. Bowen,RM,83
-Mateus Fernandes,CM,79
-T. Castellanos,ST,79
-A. Wan-Bissaka,RB,79
-E. Diouf,LB,78
-C. Summerville,LM,78
-J. Todibo,CB,78
-A. Disasi,CB,77
-C. Wilson,ST,77
-K. Mavropanos,CB,77
-A. Areola,GK,76
-K. Walker-Peters,RB,76
-T. Soucek,CDM,76
-M. Hermansen,GK,75
-M. Kilman,CB,75
-Adama Traore,RM,75
-L. Fabianski,GK,74
-Pablo,ST,73
-F. Potts,CDM,73
-S. Magassa,CDM,73
-O. Scarles,LB,72
-K. Lamadrid,LM,70
-M. Kante,CDM,62
-L. Orford,CDM,61
-E. Mayers,CB,60
+21
+Jordan Pickford,GK,85
+Ainsley Maitland-Niles,RB,77
+Jarrad Branthwaite,CB,79
+Michael Keane,CB,76
+James Tarkowski,CB,80
+Kiernan Dewsbury-Hall,CAM,81
+Jack Grealish,LM,82
+Thierno Barry,ST,76
+Mark Travers,GK,72
+Jake O'Brien,RB,76
+Vitalii Mykolenko,LB,77
+Tyrique George,LM,72
+Tyler Dibling,RM,74
+Brennan Johnson,RW,78
+Christian Norgaard,CDM,79
+Charly Alcaraz,CAM,75
+Hayden Hackney,CM,77
+Tom King,GK,64
+Merlin Rohl,CAM,74
+James Garner,CDM,82
+Harrison Armstrong,CM,74
+Fulham
+26
+Bernd Leno,GK,79
+Kenny Tete,RB,78
+Calvin Bassey,CB,78
+Jorge Cuenca,CB,76
+Joachim Andersen,CB,79
+Harrison Reed,CDM,72
+Gonzalo Garcia,ST,75
+Cesar Palacios,CAM,69
+Rodrigo Muniz,ST,76
+Tom Cairney,CM,74
+Kevin,LM,76
+Oscar Bobb,RM,76
+Hugo Larsson,CM,77
+Sander Berge,CDM,79
+Alex Iwobi,LM,80
+Jonah Kusi-Asare,ST,62
+Shea Charles,CDM,73
+Manuel Angel,CM,65
+Timothy Castagne,RB,75
+David Affengruber,CB,76
+Benjamin Lecomte,GK,73
+Josh King,CAM,74
+Ryan Sessegnon,LB,77
+Emile Smith Rowe,CAM,77
+Antonee Robinson,LB,80
+Alex Borto,GK,59
+Hull City
+33
+Jack Butland,GK,75
+Lewie Coyle,RB,71
+Ryan Giles,LB,73
+Charlie Hughes,CB,74
+Hidemasa Morita,CM,78
+Semi Ajayi,CB,71
+Sorba Thomas,LM,75
+Eliot Matazo,CDM,70
+Oliver McBurnie,ST,75
+Mohamed Belloumi,RM,74
+Joe Gelhardt,CAM,73
+Dillon Phillips,GK,66
+Jens Hjerto-Dahl,CM,68
+John Egan,CB,73
+Paddy McNair,CB,72
+Brooke Norton-Cuffy,RB,75
+Konstantinos Tzolakis,GK,79
+Elliot Stroud,LB,74
+Lucas Herrington,CB,66
+Matt Targett,LB,72
+Matt Crooks,CAM,71
+Regan Slater,CDM,72
+Ilyas Ansah,ST,73
+Lucas Gourna-Douath,CDM,70
+Nobel Mendy,CB,75
+Abdulkadir Omur,RM,69
+Tim Iroegbunam,CDM,76
+Mohamed-Ali Cho,RW,74
+Christos Mouzakitis,CM,73
+Oscar Zambrano,CDM,70
+Darko Gyabi,CM,68
+Kieran Dowell,RM,68
+Rafael Vaz,ST,71
+Ipswich Town
+28
+Alex Palmer,GK,71
+Darnell Furlong,RB,73
+Leif Davis,LB,75
+Cedric Kipre,CB,74
+Azor Matusiwa,CDM,75
+Issa Diop,CB,75
+Abdul Fatawu,RM,75
+Sindre Egeli,RM,70
+Zian Flemming,ST,76
+Julio Enciso,CAM,78
+Jaden Philogene,LM,76
+Florentino,CDM,77
+Jack Taylor,CDM,72
+Emersonn,ST,74
+Kasey McAteer,RM,71
+Sasa Lukic,CDM,78
+Jacob Greaves,CB,74
+Exequiel Palacios,CM,83
+Dara O'Shea,CB,75
+David Button,GK,62
+Christian Walton,GK,73
+Chuba Akpom,ST,71
+Marcelino Nunez,CAM,73
+Anis Mehmeti,CAM,72
+Kjell Scherpen,GK,76
+Daizen Maeda,LM,78
+Abdoul Ouattara,RM,73
+Jack Clarke,LM,75
+Leeds United
+29
+James Trafford,GK,79
+Jayden Bogle,RB,76
+Gabriel Gudmundsson,LB,78
+Ethan Ampadu,CDM,80
+Tarik Muharemovic,CB,75
+Joe Rodon,CB,77
+Daniel James,RW,75
+Sean Longstaff,CM,76
+Dominic Calvert-Lewin,ST,79
+Harry Wilson,RW,81
+Brenden Aaronson,RW,76
+Lukas Nmecha,ST,76
+Jaka Bijol,CB,77
+Michael Zetterer,GK,75
+Anton Stach,CM,80
+Noah Okafor,LW,77
+Alex Cairns,GK,62
+Ao Tanaka,CM,76
+Jean-Matteo Bahoya,LM,76
+James Justin,RB,76
+Melvin Bard,LB,76
+Nico Elvedi,CB,78
+Ilia Gruev,CDM,75
+Rory Mahady,GK,59
+Alfie Cresswell,CDM,60
+Jayden Lienou,LB,60
+Callum Mills,CAM,60
+Mateo Joseph,ST,72
+R Chadwick,CM,60
+Liverpool
+29
+Alisson Becker,GK,87
+Joe Gomez,CB,79
+Wataru Endo,CDM,78
+Virgil van Dijk,CB,88
+Jeremy Jacquet,CB,80
+Milos Kerkez,LB,81
+Florian Wirtz,CAM,85
+Dominik Szoboszlai,CAM,86
+Alexander Isak,ST,86
+Alexis Mac Allister,CM,84
+Conor Bradley,RB,79
+Federico Chiesa,RM,80
+Giovanni Leoni,CB,71
+Cody Gakpo,LM,82
+Kostas Tsimikas,LB,76
+Hugo Ekitike,ST,85
+Victor Munoz,LM,80
+Giorgi Mamardashvili,GK,83
+Freddie Woodman,GK,71
+Bradley Barcola,LW,85
+Jeremie Frimpong,RB,80
+Ronald Araujo,CB,80
+Ryan Gravenberch,CDM,85
+Trey Nyoni,CM,69
+James McConnell,CDM,68
+Vitezslav Jaros,GK,72
+Lewis Koumas,LM,70
+Rio Ngumoha,LM,75
+Harvey Davies,GK,61
+Manchester City
+26
+Gianluigi Donnarumma,GK,89
+Ruben Dias,CB,87
+Elliot Anderson,CDM,84
+Marc Guehi,CB,85
+Iliman Ndiaye,LM,82
+Mateo Kovacic,CM,81
+Erling Haaland,ST,91
+Rayan Cherki,RW,86
+Jeremy Doku,LW,84
+Marcus Bettinelli,GK,69
+Enzo Fernandez,CM,86
+Rayan Ait-Nouri,LB,81
+Vitor Reis,CB,76
+Josko Gvardiol,CB,85
+Matheus Nunes,RB,83
+Geronimo Rulli,GK,80
+Francisco Samba,CM,64
+Ayyoub Bouaddi,CDM,80
+Nico O'Reilly,LB,83
+Allan,RW,77
+Antoine Semenyo,RW,85
+Abdukodir Khusanov,CB,82
+Phil Foden,CAM,84
+Ryan McAidoo,RW,66
+Kaden Braithwaite,CB,65
+Rico Lewis,RB,77
+Manchester United
+30
+Senne Lammens,GK,82
+Diogo Dalot,RB,78
+Noussair Mazraoui,RB,80
+Matthijs de Ligt,CB,82
+Harry Maguire,CB,82
+Lisandro Martinez,CB,82
+Mason Mount,CAM,78
+Bruno Fernandes,CAM,89
+Marcus Rashford,LW,82
+Matheus Cunha,LM,84
+Joshua Zirkzee,ST,77
+Karl Darlow,GK,76
+Patrick Dorgu,LM,78
+Leny Yoro,CB,78
+Amad Diallo,RM,79
+Andrey Santos,CM,80
+Youri Tielemans,CM,85
+Bryan Mbeumo,RM,84
+Carlos Baleba,CDM,80
+Tom Heaton,GK,67
+Luke Shaw,LB,79
+Manuel Ugarte,CDM,77
+Ayden Heaven,CB,75
+Benjamin Sesko,ST,82
+Shea Lacey,RM,65
+Kobbie Mainoo,CDM,81
+Jack Fletcher,CM,63
+Tyler Fletcher,CM,65
+Harry Amass,LB,69
+Dermot Mee,GK,59
+Newcastle United
+26
+Nick Pope,GK,78
+Tino Livramento,RB,81
+Lewis Hall,LB,83
+Sven Botman,CB,81
+Fabian Schar,CB,81
+Nico Gonzalez,CDM,81
+Joelinton,CM,80
+Aladji Bamba,CM,72
+Yoane Wissa,ST,80
+William Osula,ST,75
+Harvey Barnes,LW,80
+Malick Thiaw,CB,81
+Sean Steur,CM,72
+Bazoumana Toure,LW,78
+Anthony Elanga,RW,79
+Matias Fernandez-Pardo,ST,78
+Lukas Hornicek,GK,77
+Jacob Murphy,RW,79
+Ewen Jaouen,GK,70
+Joe Willock,CM,76
+Mark Gillespie,GK,62
+Dan Burn,CB,79
+Amar Dedic,RB,76
+Jacob Ramsey,CM,78
+Leo Shahar,RB,60
+Lewis Miley,CM,77
+Nottingham Forest
+24
+Ousmane Diomande,CB,81
+Neco Williams,LB,80
+Murillo,CB,82
+Ibrahim Sangare,CDM,78
+Callum Hudson-Odoi,LM,78
+Nicolas Dominguez,CDM,78
+Chris Wood,ST,81
+Morgan Gibbs-White,CAM,83
+Igor Jesus,ST,77
+John Victor,GK,71
+Dan Ndoye,LM,77
+Arnaud Kalimuendo,ST,78
+Liam Delap,ST,77
+Xaver Schlager,CDM,78
+Ryan Yates,CDM,75
+Jair Cunha,CB,75
+James McAtee,RM,73
+Luca Netz,LB,73
+Matz Sels,GK,81
+Daniel Munoz,RB,82
+Nikola Milenkovic,CB,80
+Steven Benda,GK,68
+Ola Aina,RB,79
+Nicolo Savona,RB,75
 Sunderland
 28
-G. Xhaka,CDM,85
-R. Roefs,GK,80
-O. Alderete,CB,80
-N. Mukiele,CB,80
-Reinildo,LB,80
-N. Sadiki,CM,78
-L. Geertruida,CB,78
-T. Hume,RB,78
-D. Ballard,CB,78
-E. Le Fee,CM,78
-B. Brobbey,ST,77
-H. Diarra,CM,77
-C. Talbi,RW,76
-W. Isidor,ST,75
-B. Traore,RW,75
-C. Rigg,CAM,72
-E. Mayenda,ST,72
-D. Cirkin,LB,72
-L. O'Nien,CB,72
-N. Angulo,LM,71
-R. Mundle,LW,71
-J. Ta Bi,RM,68
-M. Ellborg,GK,67
-S. Moore,GK,66
-A. Ba,RW,65
-M. Aleksic,CM,61
-H. Jones,CAM,60
-A. Abdullahi,ST,58
-Leeds United
-26
-A. Stach,CM,79
-E. Ampadu,CDM,78
-Lucas Perri,GK,78
-J. Bijol,CB,77
-J. Rodon,CB,77
-G. Gudmundsson,LB,77
-D. Calvert-Lewin,ST,77
-N. Okafor,ST,76
-J. Bogle,RB,76
-B. Aaronson,RW,76
-A. Tanaka,CDM,76
-P. Struijk,CB,76
-L. Nmecha,ST,76
-J. Justin,RB,76
-D. James,RW,76
-S. Longstaff,CM,76
-J. Piroe,ST,75
-I. Gruev,CDM,75
-W. Gnonto,LW,74
-F. Buonanotte,CAM,74
-S. Bornauw,CB,74
-K. Darlow,GK,74
-I. Meslier,GK,71
-S. Byram,LB,71
-S. Chambers,CAM,63
-A. Cairns,GK,63
-Burnley
-30
-M. Dubravka,GK,78
-Florentino,CDM,77
-K. Walker,RB,77
-J. Cullen,CDM,77
-L. Ugochukwu,CDM,76
-M. Esteve,CB,76
-Q. Hartman,LB,76
-J. Anthony,LM,76
-Hannibal,CM,75
-Z. Flemming,ST,75
-M. Edwards,RM,75
-B. Humphreys,CB,74
-Z. Amdouni,ST,74
-Lucas Pires,LB,74
-J. Ward-Prowse,CM,74
-C. Roberts,RB,74
-L. Foster,ST,73
-J. Beyer,CB,73
-J. Laurent,CDM,73
-J. Bruun Larsen,LM,73
-J. Worrall,CB,73
-A. Tuanzebe,CB,73
-M. Tresor,LM,73
-L. Tchaouna,RM,72
-A. Broja,ST,72
-H. Ekdal,CB,71
-A. Barnes,ST,70
-M. Weiss,GK,69
-V. Hladky,GK,68
-E. Agyei,RM,63
-Wolverhampton Wanderers
-23
-Andre,CDM,78
-Joao Gomes,CDM,78
-L. Krejci,CB,78
-A. Gomes,CAM,76
-T. Arokodare,ST,76
-S. Bueno,CB,76
-S. Johnstone,GK,76
-Jose Sa,GK,76
-Hugo Bueno,LB,75
-Toti,CB,75
-J. Bellegarde,CAM,75
-J. Tchatchoua,RB,74
-M. Doherty,CB,74
-Hwang Hee Chan,ST,74
-Rodrigo Gomes,LW,73
-D. Wolfe,LB,73
-A. Armstrong,ST,73
-Y. Mosquera,CB,72
-Mateus Mane,CAM,71
-D. Bentley,GK,71
-Pedro Lima,RB,68
-T. Edozie,RW,65
-E. Gonzalez,LW,63
+Kevin Danso,CB,79
+Dan Ballard,CB,78
+Dayann Methalie,LB,75
+Chemsdine Talbi,RM,77
+Alan Browne,CM,72
+Brian Brobbey,ST,78
+Nilson Angulo,LM,73
+Chris Rigg,CAM,74
+Thomas Meunier,RB,78
+Luke O'Nien,CB,73
+Romaine Mundle,LM,72
+Omar Alderete,CB,81
+Reinildo Mandava,LB,80
+Wilson Isidor,ST,75
+Habib Diarra,CM,77
+Nordi Mukiele,RB,81
+Simon Moore,GK,65
+Robin Roefs,GK,81
+Noah Sadiki,CDM,80
+Enzo Le Fee,CAM,80
+Jules Ahoka,CDM,63
+Melker Ellborg,GK,68
+Trai Hume,RB,78
+Granit Xhaka,CDM,85
+Jocelin Ta Bi,RM,69
+Malick Fofana,LM,77
+Tymur Tutierov,ST,63
+Jocelin Angulo,ST,62
+Tottenham Hotspur
+29
+Andy Robertson,LB,80
+Tosin Adarabioyo,CB,77
+Marcos Senesi,CB,82
+Jan Paul van Hecke,CB,81
+Xavi Simons,CAM,81
+Conor Gallagher,CM,78
+James Maddison,CM,82
+Mathys Tel,LM,78
+Destiny Udogie,LB,79
+Archie Gray,CDM,77
+Lucas Bergvall,CM,78
+Sandro Tonali,CDM,85
+Savio,RW,80
+Mateus Fernandes,CM,80
+Dominic Solanke,ST,79
+Mohammed Kudus,RW,81
+Dejan Kulusevski,CM,81
+Omar Marmoush,LW,82
+Pedro Porro,RB,83
+Mykhailo Mudryk,LM,75
+Wilson Odobert,LM,78
+Rodrigo Bentancur,CDM,79
+Antonin Kinsky,GK,77
+Ben Davies,CB,74
+Micky van de Ven,CB,81
+Martin Dubravka,GK,77
+Brandon Austin,GK,67
+Luca Williams-Barnett,CAM,68
+Richarlison,ST,78
