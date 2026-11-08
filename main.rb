@@ -510,7 +510,7 @@ end
     )
 
     # Display players
-      players = @current_club.players
+      players = @eligible_players
       index = @scroll_offset
 
       while index < players.length && index < @scroll_offset + 12
@@ -562,7 +562,7 @@ end
   def button_down(id)
     # Scroll through the player list
     if id == Gosu::MsWheelDown
-      if @scroll_offset + 12 < @current_club.players.length
+      if @scroll_offset + 12 < @eligible_players.length
         @scroll_offset += 1
       end
 
@@ -603,8 +603,12 @@ end
 
         if @selected_formation != nil
           if mouse_over_button?(button_x, button_y, button_width, button_height)
-            @current_club = @clubs.sample
-            @draft_round = 1
+           @draft_round = 1
+            @squad = Array.new(11)
+
+            @current_club = random_eligible_club()
+            @eligible_players = filter_players(@current_club)
+
             @scroll_offset = 0
             @screen = :draft
           end
@@ -654,6 +658,53 @@ end
     end
 
     return clubs
+  end
+
+  def filter_players(club)
+    eligible = []
+    positions = @formation_positions[@selected_formation]
+
+    player_index = 0
+
+    while player_index < club.players.length
+      player = club.players[player_index]
+      position_index = 0
+      suitable = false
+
+      while position_index < positions.length
+        if player.position == positions[position_index] &&
+          @squad[position_index] == nil
+          suitable = true
+        end
+
+        position_index += 1
+      end
+
+      if suitable
+        eligible << player
+      end
+
+      player_index += 1
+    end
+
+    return eligible
+  end
+
+  def random_eligible_club()
+    available_clubs = []
+    index = 0
+
+    while index < @clubs.length
+      club = @clubs[index]
+
+      if filter_players(club).length > 0
+        available_clubs << club
+      end
+
+      index += 1
+    end
+
+    return available_clubs.sample
   end
 
   def needs_cursor?
