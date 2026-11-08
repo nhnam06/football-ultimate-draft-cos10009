@@ -39,7 +39,7 @@ end
     @button_font = Gosu::Font.new(42, name: "fonts/Baloo2-ExtraBold.ttf")
     @title_font = Gosu::Font.new(55, name: "fonts/Baloo2-ExtraBold.ttf")
     @formation_font = Gosu::Font.new(52, name: "fonts/Baloo2-ExtraBold.ttf")
-    @draft_font = Gosu::Font.new(18, name: "fonts/Baloo2-ExtraBold.ttf")
+    @draft_font = Gosu::Font.new(22, name: "fonts/Baloo2-ExtraBold.ttf")
 
     @screen = :splash
 
@@ -289,7 +289,7 @@ end
     button_x = (width - button_width) / 2
 
     start_y = height * 0.60
-    exit_y = height * 0.75
+    exit_y = height * 0.70
 
     draw_button("START DRAFT", button_x, start_y, button_width, button_height)
     draw_button("EXIT", button_x, exit_y, button_width, button_height)
@@ -499,9 +499,17 @@ end
 
     # Football pitch
     pitch_width = width * 0.66
-    pitch_height = height * 0.75
+    pitch_height = height * 0.70
     pitch_x = width * 0.03
-    pitch_y = height * 0.15
+    pitch_y = height * 0.20
+
+    # Display DRAFTIFY logo in the white space above the pitch
+    logo_scale = [(pitch_width * 0.85) / @logo.width, (pitch_y * 0.95) / @logo.height].min * 2.5
+
+    logo_x = pitch_x + (pitch_width - @logo.width * logo_scale) / 2
+    logo_y = (pitch_y - @logo.height * logo_scale) / 2
+
+    @logo.draw(logo_x, logo_y, ZOrder::TOP, logo_scale, logo_scale)
 
     Gosu.draw_rect(
       pitch_x, pitch_y,
@@ -553,6 +561,7 @@ end
     panel_y = height * 0.12
     panel_width = width * 0.24
     panel_height = height * 0.78
+    center_x = panel_x + panel_width / 2
 
     # Draw player selection panel
     Gosu.draw_rect(
@@ -574,13 +583,13 @@ end
     club_logo = @club_logos[display_club.name]
 
     if club_logo != nil
-      logo_scale = 80.0 / club_logo.height
+      logo_scale = 115.0 / club_logo.height
       if club_logo.width * logo_scale > panel_width - 40
         logo_scale = (panel_width - 40.0) / club_logo.width
       end
 
       logo_x = panel_x + (panel_width - club_logo.width * logo_scale) / 2
-      logo_y = panel_y + 40 + (80 - club_logo.height * logo_scale) / 2
+      logo_y = panel_y + 40 + (115 - club_logo.height * logo_scale) / 2
 
       club_logo.draw(
         logo_x, logo_y,
@@ -590,20 +599,19 @@ end
 
     # Display club name
     club_name = display_club.name
-    name_scale = [1.0, (panel_width - 20.0) / @draft_font.text_width(club_name)].min
-    name_x = panel_x + (panel_width - @draft_font.text_width(club_name) * name_scale) / 2
+    name_scale = [1.0, (panel_width - 20.0) / @font.text_width(club_name)].min
+    name_x = panel_x + (panel_width - @font.text_width(club_name) * name_scale) / 2
 
-    @draft_font.draw_text(
-      club_name, name_x, panel_y + 125,
+    @font.draw_text(
+      club_name, name_x, panel_y + 160,
       ZOrder::TOP, name_scale, name_scale,
       Gosu::Color::BLACK
     )
 
-
     if @spinning_club
       @draft_font.draw_text(
         "SPINNING...",
-        panel_x + 15, panel_y + 160,
+        panel_x + 15, panel_y + 215,
         ZOrder::TOP, 1.0, 1.0,
         Gosu::Color::BLACK
       )
@@ -614,11 +622,11 @@ end
       players = @eligible_players
       index = @scroll_offset
 
-      while index < players.length && index < @scroll_offset + 12
+      while index < players.length && index < @scroll_offset + 7
         player = players[index]
 
       player_x = panel_x + 12
-      player_y = panel_y + 165 + (index - @scroll_offset) * 44
+      player_y = panel_y + 220 + (index - @scroll_offset) * 58
 
       if player == @selected_player
         player_color = Gosu::Color.rgb(255, 210, 60)
@@ -628,7 +636,7 @@ end
 
       Gosu.draw_rect(
         player_x, player_y,
-        panel_width - 24, 42,
+        panel_width - 24, 56,
         player_color,
         ZOrder::MIDDLE
       )
@@ -645,7 +653,7 @@ end
 
       @draft_font.draw_text(
         details,
-        player_x + 8, player_y + 20,
+        player_x + 8, player_y + 28,
         ZOrder::TOP, 1.0, 1.0,
         Gosu::Color::BLACK
       )
@@ -655,7 +663,7 @@ end
 
     # Display player count
     start_number = @scroll_offset + 1
-    end_number = [@scroll_offset + 12, players.length].min
+    end_number = [@scroll_offset + 7, players.length].min
 
     count_text = "Players #{start_number}-#{end_number} / #{players.length}"
 
@@ -674,6 +682,7 @@ end
     panel_y = height * 0.20
     panel_width = width * 0.24
     panel_height = height * 0.55
+    center_x = panel_x + panel_width / 2
 
     Gosu.draw_rect(
       panel_x, panel_y,
@@ -682,31 +691,38 @@ end
       ZOrder::MIDDLE
     )
 
-    @draft_font.draw_text(
+    @font.draw_text_rel(
       "DRAFT COMPLETE!",
-      panel_x + 20, panel_y + 30,
-      ZOrder::TOP, 1.0, 1.0,
+      center_x, panel_y + 25,
+      ZOrder::TOP, 0.5, 0.0, 1.2, 1.2,
       Gosu::Color::BLACK
     )
 
-    @draft_font.draw_text(
+    @draft_font.draw_text_rel(
       "TEAM OVR",
-      panel_x + 20, panel_y + 110,
-      ZOrder::TOP, 1.0, 1.0,
+      center_x, panel_y + 105,
+      ZOrder::TOP, 0.5, 0.0, 1.0, 1.0,
       Gosu::Color::BLACK
     )
 
-    @title_font.draw_text(
+    @title_font.draw_text_rel(
       @team_ovr.to_s,
-      panel_x + 20, panel_y + 145,
-      ZOrder::TOP, 1.0, 1.0,
+      center_x, panel_y + 150,
+      ZOrder::TOP, 0.5, 0.0, 1.5, 1.5,
       Gosu::Color::BLACK
     )
+    # Divider
+    Gosu.draw_rect(
+      panel_x + 20, panel_y + 250,
+      panel_width - 40, 2,
+      Gosu::Color.rgb(200, 200, 200),
+      ZOrder::TOP
+    )
 
-    @draft_font.draw_text(
+    @draft_font.draw_text_rel(
       "SQUAD RANK",
-      panel_x + 20, panel_y + 245,
-      ZOrder::TOP, 1.0, 1.0,
+      center_x, panel_y + 255,
+      ZOrder::TOP, 0.5, 0.0, 1.0, 1.0,
       Gosu::Color::BLACK
     )
 
@@ -720,17 +736,28 @@ end
       rank_color = Gosu::Color.rgb(180, 100, 50)
     end
 
-    @font.draw_text(
+    
+    rank_scale = [(panel_width - 40.0) / @title_font.text_width(@team_rank), 1.0].min
+
+    @title_font.draw_text_rel(
       @team_rank,
-      panel_x + 20, panel_y + 280,
-      ZOrder::TOP, 0.65, 0.65,
+      center_x, panel_y + 305,
+      ZOrder::TOP, 0.5, 0.0, rank_scale, rank_scale,
       rank_color
     )
 
-    @draft_font.draw_text(
+    # Divider
+      Gosu.draw_rect(
+        panel_x + 20, panel_y + 380,
+        panel_width - 40, 2,
+        Gosu::Color.rgb(200, 200, 200),
+        ZOrder::TOP
+      )
+
+    @font.draw_text_rel(
       "11 / 11 PLAYERS",
-      panel_x + 20, panel_y + 390,
-      ZOrder::TOP, 1.0, 1.0,
+      center_x, panel_y + 405,
+      ZOrder::TOP, 0.5, 0.0, 0.8, 0.8,
       Gosu::Color::BLACK
     )
     # Result screen buttons
@@ -748,7 +775,7 @@ end
     return if @screen == :draft && @spinning_club
     # Scroll through the player list
     if @screen == :draft && id == Gosu::MsWheelDown
-      if @scroll_offset + 12 < @eligible_players.length
+      if @scroll_offset + 7 < @eligible_players.length
         @scroll_offset += 1
       end
 
@@ -771,7 +798,7 @@ end
         button_x = (width - button_width) / 2
 
         start_y = height * 0.60
-        exit_y = height * 0.75
+        exit_y = height * 0.70
 
         if mouse_over_button?(button_x, start_y, button_width, button_height)
           @selected_formation = nil
@@ -815,14 +842,14 @@ end
         panel_width = width * 0.24
 
         player_x = panel_x + 12
-        first_player_y = panel_y + 165
+        first_player_y = panel_y + 220
 
         if mouse_x >= player_x &&
           mouse_x <= player_x + panel_width - 24 &&
           mouse_y >= first_player_y &&
-          mouse_y < first_player_y + 12 * 44
+          mouse_y < first_player_y + 7 * 58
 
-          row = ((mouse_y - first_player_y) / 44).to_i
+          row = ((mouse_y - first_player_y) / 58).to_i
           index = @scroll_offset + row
 
           if index < @eligible_players.length && !@placed_this_round
