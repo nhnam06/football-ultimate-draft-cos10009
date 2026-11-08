@@ -728,7 +728,22 @@ end
                   @screen = :pitch
                 end
               else
+                @team_ovr = calculate_team_ovr()
+
+                if @team_ovr >= 85
+                  @team_rank = "LEGENDARY"
+                elsif @team_ovr >= 80
+                  @team_rank = "GOLD"
+                elsif @team_ovr >= 75
+                  @team_rank = "SILVER"
+                else
+                  @team_rank = "BRONZE"
+                end
+
                 puts "Draft complete!"
+                puts "Team OVR: #{@team_ovr}"
+                puts "Team Rank: #{@team_rank}"
+
                 @screen = :pitch
               end
 
@@ -778,6 +793,29 @@ end
     end
 
     return clubs
+  end
+
+  def calculate_team_ovr()
+    total_ovr = 0
+    player_count = 0
+    index = 0
+
+    while index < @squad.length
+      player = @squad[index]
+
+      if player != nil
+        total_ovr += player.ovr
+        player_count += 1
+      end
+
+      index += 1
+    end
+
+    if player_count > 0
+      return total_ovr / player_count
+    else
+      return 0
+    end
   end
 
   def filter_players(club)
