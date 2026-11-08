@@ -39,6 +39,7 @@ end
     @button_font = Gosu::Font.new(42, name: "fonts/Baloo2-ExtraBold.ttf")
     @title_font = Gosu::Font.new(55, name: "fonts/Baloo2-ExtraBold.ttf")
     @formation_font = Gosu::Font.new(52, name: "fonts/Baloo2-ExtraBold.ttf")
+    @draft_font = Gosu::Font.new(18, name: "fonts/Baloo2-ExtraBold.ttf")
 
     @screen = :splash
 
@@ -158,6 +159,8 @@ end
       draw_formation()
     when :pitch
       draw_pitch()
+     when :draft
+      draw_draft()
     end
   end
 
@@ -431,10 +434,9 @@ end
     )
 
     # Football pitch
-    pitch_width = width * 0.65
+    pitch_width = width * 0.66
     pitch_height = height * 0.75
-
-    pitch_x = (width - pitch_width) / 2
+    pitch_x = width * 0.03
     pitch_y = height * 0.15
 
     Gosu.draw_rect(
@@ -475,8 +477,104 @@ end
     draw_positions(pitch_x, pitch_y, pitch_width, pitch_height)
   end
 
+  def draw_draft()
+    draw_pitch()
+
+    panel_x = width * 0.73
+    panel_y = height * 0.12
+    panel_width = width * 0.24
+    panel_height = height * 0.78
+
+    # Draw player selection panel
+    Gosu.draw_rect(
+      panel_x, panel_y,
+      panel_width, panel_height,
+      Gosu::Color::WHITE,
+      ZOrder::MIDDLE
+    )
+
+    # Display draft round
+    title = "ROUND #{@draft_round} / 11"
+    @draft_font.draw_text(
+      title, panel_x + 15, panel_y + 15,
+      ZOrder::TOP, 1.0, 1.0,
+      Gosu::Color::BLACK
+    )
+
+    # Display selected club
+    @draft_font.draw_text(
+      @current_club.name,
+      panel_x + 15, panel_y + 55,
+      ZOrder::TOP, 1.0, 1.0,
+      Gosu::Color::BLACK
+    )
+
+    # Display players
+      players = @current_club.players
+      index = @scroll_offset
+
+      while index < players.length && index < @scroll_offset + 12
+        player = players[index]
+
+      player_x = panel_x + 12
+      player_y = panel_y + 110 + (index - @scroll_offset) * 44
+
+      Gosu.draw_rect(
+        player_x, player_y,
+        panel_width - 24, 42,
+        Gosu::Color.rgb(240, 240, 240),
+        ZOrder::MIDDLE
+      )
+
+      @draft_font.draw_text(
+        player.name,
+        player_x + 8, player_y,
+        ZOrder::TOP, 1.0, 1.0,
+        Gosu::Color::BLACK
+      )
+
+      details = "#{player.position} | OVR #{player.ovr}"
+
+      @draft_font.draw_text(
+        details,
+        player_x + 8, player_y + 20,
+        ZOrder::TOP, 1.0, 1.0,
+        Gosu::Color::BLACK
+      )
+
+      index += 1
+    end
+
+    # Display player count
+    start_number = @scroll_offset + 1
+    end_number = [@scroll_offset + 12, players.length].min
+
+    count_text = "Players #{start_number}-#{end_number} / #{players.length}"
+
+    @draft_font.draw_text(
+      count_text,
+      panel_x + 15, panel_y + panel_height - 35,
+      ZOrder::TOP, 1.0, 1.0,
+      Gosu::Color::BLACK
+    )
+  end
+
   def button_down(id)
-    if id == Gosu::MsLeft
+    # Scroll through the player list
+    if @screen == :draft &&
+      mouse_over_button?(width * 0.73, height * 0.12,
+                          width * 0.24, height * 0.78)
+
+      if id == Gosu::MsWheelDown
+        max_scroll = [@current_club.players.length - 12, 0].max
+        @scroll_offset = [@scroll_offset + 1, max_scroll].min
+
+      elsif id == Gosu::MsWheelUp
+        @scroll_offset = [@scroll_offset - 1, 0].max
+      end
+    end
+
+  if id == Gosu::MsLeft
 
       case @screen
 
@@ -508,9 +606,9 @@ end
         if @selected_formation != nil
           if mouse_over_button?(button_x, button_y, button_width, button_height)
             @current_club = @clubs.sample
-            puts "Round 1 Club: #{@current_club.name}"
-
-            @screen = :pitch
+            @draft_round = 1
+            @scroll_offset = 0
+            @screen = :draft
           end
 
 
