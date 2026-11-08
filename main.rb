@@ -50,7 +50,8 @@ end
     puts "Loaded #{@club_data.length} lines from clubs.txt"
 
     @clubs = build_clubs(@club_data)
-    puts "Loaded #{@clubs.length} clubs"
+    load_club_logos()
+    puts "Loaded #{@club_logos.length} club logos"
 
     @formation_positions = {
       "4-3-3" => [
@@ -137,6 +138,22 @@ end
         end
       end
     end
+    
+    if @spinning_club
+      current_time = Gosu.milliseconds
+      interval = 70 + @club_spin_steps * 8
+
+      if current_time - @last_club_spin_time >= interval
+        @club_spin_index = (@club_spin_index + 1) % @clubs.length
+        @club_spin_steps += 1
+        @last_club_spin_time = current_time
+
+        if @club_spin_steps >= @clubs.length
+          @spinning_club = false
+        end
+      end
+    end
+
   end
   
   def start_spin()
@@ -149,6 +166,13 @@ end
     @last_spin_time = Gosu.milliseconds
   end
   
+  def start_club_spin()
+    @spinning_club = true
+    @club_spin_index = @clubs.index(@current_club)
+    @club_spin_steps = 0
+    @last_club_spin_time = Gosu.milliseconds
+  end
+
   def draw()
     case @screen
     when :splash
@@ -519,6 +543,11 @@ end
 
   def draw_draft()
     draw_pitch()
+    display_club = @current_club
+
+    if @spinning_club
+      display_club = @clubs[@club_spin_index]
+    end
 
     panel_x = width * 0.73
     panel_y = height * 0.12
@@ -541,13 +570,41 @@ end
       Gosu::Color::BLACK
     )
 
-    # Display selected club
+    
+    # Display large club logo
+    club_logo = @club_logos[display_club.name]
+
+    if club_logo != nil
+      logo_scale = [80.0 / club_logo.width, 80.0 / club_logo.height].min
+      logo_x = panel_x + (panel_width - club_logo.width * logo_scale) / 2
+
+      club_logo.draw(
+        logo_x, panel_y + 40,
+        ZOrder::TOP, logo_scale, logo_scale
+      )
+    end
+
+    # Display club name
+    club_name = display_club.name
+    name_scale = [1.0, (panel_width - 20.0) / @draft_font.text_width(club_name)].min
+    name_x = panel_x + (panel_width - @draft_font.text_width(club_name) * name_scale) / 2
+
     @draft_font.draw_text(
-      @current_club.name,
-      panel_x + 15, panel_y + 55,
-      ZOrder::TOP, 1.0, 1.0,
+      club_name, name_x, panel_y + 125,
+      ZOrder::TOP, name_scale, name_scale,
       Gosu::Color::BLACK
     )
+
+
+    if @spinning_club
+      @draft_font.draw_text(
+        "SPINNING...",
+        panel_x + 15, panel_y + 160,
+        ZOrder::TOP, 1.0, 1.0,
+        Gosu::Color::BLACK
+      )
+      return
+    end
 
     # Display players
       players = @eligible_players
@@ -557,7 +614,7 @@ end
         player = players[index]
 
       player_x = panel_x + 12
-      player_y = panel_y + 110 + (index - @scroll_offset) * 44
+      player_y = panel_y + 165 + (index - @scroll_offset) * 44
 
       if player == @selected_player
         player_color = Gosu::Color.rgb(255, 210, 60)
@@ -684,6 +741,7 @@ end
   end
 
   def button_down(id)
+    return if @screen == :draft && @spinning_club
     # Scroll through the player list
     if @screen == :draft && id == Gosu::MsWheelDown
       if @scroll_offset + 12 < @eligible_players.length
@@ -733,6 +791,7 @@ end
 
             @current_club = random_eligible_club()
             @eligible_players = filter_players(@current_club)
+            start_club_spin()
 
             @selected_player = nil
             @placed_this_round = false
@@ -801,6 +860,7 @@ end
                 if @current_club != nil
                   @eligible_players = filter_players(@current_club)
                   @scroll_offset = 0
+                  start_club_spin()
                   @placed_this_round = false
                 else
                   puts "No eligible clubs available"
@@ -878,6 +938,24 @@ end
     return clubs
   end
 
+  def load_club_logos()
+    @club_logos = {}
+    index = 0
+
+    while index < @clubs.length
+      club = @clubs[index]
+
+      file_name = club.name.downcase.gsub(" ", "_")
+      path = "media/club_logos/#{file_name}.png"
+
+      if File.exist?(path)
+        @club_logos[club.name] = Gosu::Image.new(path)
+      end
+
+      index += 1
+    end
+  end
+
   def calculate_team_ovr()
     total_ovr = 0
     player_count = 0
@@ -913,7 +991,7 @@ end
       suitable = false
 
       while position_index < positions.length
-        if player.position == positions[position_index] &&
+        if player.positions.include?(positions[position_index]) &&
           @squad[position_index] == nil
           suitable = true
         end
