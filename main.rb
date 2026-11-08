@@ -561,16 +561,14 @@ end
 
   def button_down(id)
     # Scroll through the player list
-    if @screen == :draft &&
-      mouse_over_button?(width * 0.73, height * 0.12,
-                          width * 0.24, height * 0.78)
+    if id == Gosu::MsWheelDown
+      if @scroll_offset + 12 < @current_club.players.length
+        @scroll_offset += 1
+      end
 
-      if id == Gosu::MsWheelDown
-        max_scroll = [@current_club.players.length - 12, 0].max
-        @scroll_offset = [@scroll_offset + 1, max_scroll].min
-
-      elsif id == Gosu::MsWheelUp
-        @scroll_offset = [@scroll_offset - 1, 0].max
+    elsif id == Gosu::MsWheelUp
+      if @scroll_offset > 0
+        @scroll_offset -= 1
       end
     end
 
