@@ -705,7 +705,7 @@ end
               mouse_y <= slot_y + 35 &&
               @selected_player.position == slot_position &&
               @squad[slot_index] == nil
-                            
+
               @squad[slot_index] = @selected_player
               @placed_this_round = true
 
@@ -807,7 +807,7 @@ end
       player_index += 1
     end
 
-    return eligible
+    return eligible.sort_by { |player| -player.ovr }
   end
 
   def random_eligible_club()
