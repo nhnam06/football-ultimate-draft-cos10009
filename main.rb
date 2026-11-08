@@ -519,12 +519,19 @@ end
       player_x = panel_x + 12
       player_y = panel_y + 110 + (index - @scroll_offset) * 44
 
+      if player == @selected_player
+        player_color = Gosu::Color.rgb(255, 210, 60)
+      else
+        player_color = Gosu::Color.rgb(240, 240, 240)
+      end
+
       Gosu.draw_rect(
         player_x, player_y,
         panel_width - 24, 42,
-        Gosu::Color.rgb(240, 240, 240),
+        player_color,
         ZOrder::MIDDLE
       )
+
 
       @draft_font.draw_text(
         player.name,
@@ -595,6 +602,7 @@ end
           close
         end
 
+      
       when :formation
         button_width = 340
         button_height = 65
@@ -603,23 +611,45 @@ end
 
         if @selected_formation != nil
           if mouse_over_button?(button_x, button_y, button_width, button_height)
-           @draft_round = 1
+            @draft_round = 1
             @squad = Array.new(11)
 
             @current_club = random_eligible_club()
             @eligible_players = filter_players(@current_club)
 
+            @selected_player = nil
             @scroll_offset = 0
             @screen = :draft
           end
-
 
         elsif !@spinning
           if mouse_over_button?(button_x, button_y, button_width, button_height)
             start_spin()
           end
         end
-      end
+
+      when :draft
+        panel_x = width * 0.73
+        panel_y = height * 0.12
+        panel_width = width * 0.24
+
+        player_x = panel_x + 12
+        first_player_y = panel_y + 110
+
+        if mouse_x >= player_x &&
+          mouse_x <= player_x + panel_width - 24 &&
+          mouse_y >= first_player_y &&
+          mouse_y < first_player_y + 12 * 44
+
+          row = ((mouse_y - first_player_y) / 44).to_i
+          index = @scroll_offset + row
+
+          if index < @eligible_players.length
+            @selected_player = @eligible_players[index]
+            puts "Selected: #{@selected_player.name}"
+          end
+        end
+      end    
     end
   end
 
