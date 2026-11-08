@@ -369,6 +369,7 @@ end
   
   def draw_positions(pitch_x, pitch_y, pitch_width, pitch_height)
     positions = @formation_positions[@selected_formation]
+    @slot_positions = []
 
     if @selected_formation == "4-3-3"
       rows = [3, 3, 4, 1]
@@ -390,6 +391,14 @@ end
 
         x = pitch_x + pitch_width * (column + 1) / (players_in_row + 1)
         y = pitch_y + pitch_height * (row + 1) / (rows.length + 1)
+        @slot_positions << [x, y]
+       
+        # Get the player in this slot
+        player = nil
+
+        if @squad != nil
+          player = @squad[index]
+        end
 
         # Draw black circle border
         draw_rounded_button(
@@ -399,23 +408,52 @@ end
           ZOrder::MIDDLE
         )
 
-        # Draw white circle
+        # Check if the slot contains a player
+        if player != nil
+          circle_color = Gosu::Color.rgb(255, 210, 60)
+          display_text = player.ovr.to_s
+        else
+          circle_color = Gosu::Color::WHITE
+          display_text = position
+        end
+
+        # Draw the circle
         draw_rounded_button(
           x - 35, y - 35,
           70, 70,
-          Gosu::Color::WHITE,
+          circle_color,
           ZOrder::MIDDLE
         )
 
-        # Centre position text
-        text_x = x - @font.text_width(position) / 2
+        # Centre the text inside the circle
+        text_x = x - @font.text_width(display_text) / 2
         text_y = y - @font.height / 2
 
         @font.draw_text(
-          position, text_x, text_y,
+          display_text, text_x, text_y,
           ZOrder::TOP, 1.0, 1.0,
           Gosu::Color::BLACK
         )
+
+        # Display the player's name below the circle
+        if player != nil
+          name_width = @draft_font.text_width(player.name)
+          name_scale = 1.0
+
+          if name_width > 130
+            name_scale = 130.0 / name_width
+          end
+
+          name_x = x - name_width * name_scale / 2
+          name_y = y + 38
+
+          @draft_font.draw_text(
+            player.name, name_x, name_y,
+            ZOrder::TOP, name_scale, name_scale,
+            Gosu::Color::WHITE
+          )
+        end
+
 
         index += 1
         column += 1
@@ -568,12 +606,12 @@ end
 
   def button_down(id)
     # Scroll through the player list
-    if id == Gosu::MsWheelDown
+    if @screen == :draft && id == Gosu::MsWheelDown
       if @scroll_offset + 12 < @eligible_players.length
         @scroll_offset += 1
       end
 
-    elsif id == Gosu::MsWheelUp
+    elsif @screen == :draft && id == Gosu::MsWheelUp
       if @scroll_offset > 0
         @scroll_offset -= 1
       end
@@ -618,6 +656,7 @@ end
             @eligible_players = filter_players(@current_club)
 
             @selected_player = nil
+            @placed_this_round = false
             @scroll_offset = 0
             @screen = :draft
           end
@@ -644,9 +683,39 @@ end
           row = ((mouse_y - first_player_y) / 44).to_i
           index = @scroll_offset + row
 
-          if index < @eligible_players.length
+          if index < @eligible_players.length && !@placed_this_round
             @selected_player = @eligible_players[index]
             puts "Selected: #{@selected_player.name}"
+          end
+        end
+
+        # Place the selected player on the pitch
+        if @selected_player != nil && !@placed_this_round
+          slot_index = 0
+
+          while slot_index < @slot_positions.length
+            slot_x = @slot_positions[slot_index][0]
+            slot_y = @slot_positions[slot_index][1]
+
+            slot_position = @formation_positions[@selected_formation][slot_index]
+
+            if mouse_x >= slot_x - 35 &&
+              mouse_x <= slot_x + 35 &&
+              mouse_y >= slot_y - 35 &&
+              mouse_y <= slot_y + 35 &&
+              @selected_player.position == slot_position &&
+              @squad[slot_index] == nil
+
+              @squad[slot_index] = @selected_player
+              @placed_this_round = true
+
+              puts "Placed #{@selected_player.name} at #{slot_position}"
+
+              @selected_player = nil
+              break
+            end
+
+            slot_index += 1
           end
         end
       end    
