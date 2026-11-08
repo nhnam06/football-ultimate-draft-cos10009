@@ -507,8 +507,12 @@ end
 
         if @selected_formation != nil
           if mouse_over_button?(button_x, button_y, button_width, button_height)
+            @current_club = @clubs.sample
+            puts "Round 1 Club: #{@current_club.name}"
+
             @screen = :pitch
           end
+
 
         elsif !@spinning
           if mouse_over_button?(button_x, button_y, button_width, button_height)
