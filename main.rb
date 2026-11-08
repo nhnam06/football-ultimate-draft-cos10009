@@ -857,20 +857,21 @@ end
 
               # Move to the next draft round
               if @draft_round < 11
-                @draft_round += 1
+              @draft_round += 1
 
-                @current_club = random_eligible_club()
+              @current_club = random_eligible_club()
 
-                if @current_club != nil
-                  @eligible_players = filter_players(@current_club)
-                  @scroll_offset = 0
-                  start_club_spin()
-                  @placed_this_round = false
-                else
-                  puts "No eligible clubs available"
-                  @screen = :pitch
-                end
+              if @current_club != nil
+                @eligible_players = filter_players(@current_club)
+                @scroll_offset = 0
+                @placed_this_round = false
+                start_club_spin()
               else
+                puts "No eligible clubs available"
+                @screen = :pitch
+              end
+            else
+
                 @team_ovr = calculate_team_ovr()
 
                 if @team_ovr >= 85
