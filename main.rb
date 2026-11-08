@@ -161,6 +161,8 @@ end
       draw_pitch()
      when :draft
       draw_draft()
+    when :result
+      draw_result()
     end
   end
 
@@ -604,6 +606,74 @@ end
     )
   end
 
+  def draw_result()
+    draw_pitch()
+
+    panel_x = width * 0.73
+    panel_y = height * 0.20
+    panel_width = width * 0.24
+    panel_height = height * 0.55
+
+    Gosu.draw_rect(
+      panel_x, panel_y,
+      panel_width, panel_height,
+      Gosu::Color::WHITE,
+      ZOrder::MIDDLE
+    )
+
+    @draft_font.draw_text(
+      "DRAFT COMPLETE!",
+      panel_x + 20, panel_y + 30,
+      ZOrder::TOP, 1.0, 1.0,
+      Gosu::Color::BLACK
+    )
+
+    @draft_font.draw_text(
+      "TEAM OVR",
+      panel_x + 20, panel_y + 110,
+      ZOrder::TOP, 1.0, 1.0,
+      Gosu::Color::BLACK
+    )
+
+    @title_font.draw_text(
+      @team_ovr.to_s,
+      panel_x + 20, panel_y + 145,
+      ZOrder::TOP, 1.0, 1.0,
+      Gosu::Color::BLACK
+    )
+
+    @draft_font.draw_text(
+      "SQUAD RANK",
+      panel_x + 20, panel_y + 245,
+      ZOrder::TOP, 1.0, 1.0,
+      Gosu::Color::BLACK
+    )
+
+    if @team_rank == "LEGENDARY"
+      rank_color = Gosu::Color.rgb(170, 70, 220)
+    elsif @team_rank == "GOLD"
+      rank_color = Gosu::Color.rgb(255, 185, 0)
+    elsif @team_rank == "SILVER"
+      rank_color = Gosu::Color.rgb(140, 140, 140)
+    else
+      rank_color = Gosu::Color.rgb(180, 100, 50)
+    end
+
+    @font.draw_text(
+      @team_rank,
+      panel_x + 20, panel_y + 280,
+      ZOrder::TOP, 0.65, 0.65,
+      rank_color
+    )
+
+    @draft_font.draw_text(
+      "11 / 11 PLAYERS",
+      panel_x + 20, panel_y + 390,
+      ZOrder::TOP, 1.0, 1.0,
+      Gosu::Color::BLACK
+    )
+  end
+
   def button_down(id)
     # Scroll through the player list
     if @screen == :draft && id == Gosu::MsWheelDown
@@ -744,7 +814,7 @@ end
                 puts "Team OVR: #{@team_ovr}"
                 puts "Team Rank: #{@team_rank}"
 
-                @screen = :pitch
+                @screen = :result
               end
 
               break
